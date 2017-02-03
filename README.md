@@ -1,13 +1,14 @@
 # GLITCH: A Discrete Gaussian Testing Suite For Lattice-Based Cryptography
 
-03-Feb-2017 James Howe jhowe02{at}qub{dot}ac{dot}uk
+03-Feb-2017 James Howe, email: jhowe02 at qub.ac.uk
+
 Centre for Secure Information Technologies (CSIT), Queen's University Belfast, UK
 
 ## Introduction
 
 The code provided in testgauss.py is the main file, which runs on data files given in the samples directory. The samples directory contains data of different sample sizes, from different samplers, as well as 'buggy' samples. An environment file test_gauss.yml is also provided in order to recreate the Anaconda environment through which testgauss.py works.
 
-## Brief Description of Code
+## Brief Description
 
 The code is entirely adaptable, but for use in testing discrete Gaussian samplers, there should not be any need to change the code except for the target standard deviation (target_sigma). The main parameters that would be of use to adapt are:
 
