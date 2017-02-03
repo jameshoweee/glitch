@@ -12,29 +12,29 @@ The code provided in testgauss.py is the main file, which runs on data files giv
 
 The code is entirely adaptable, but for use in testing discrete Gaussian samplers, there should not be any need to change the code except for the target standard deviation (target_sigma). The main parameters that would be of use to adapt are:
 
-1. The precision, defined as 'getcontext()Context(prec = 128, traps=[Overflow, DivisionByZero, InvalidOperation])' using the decimal library. Change the prec variable as required.
+1. The precision, defined as `getcontext()Context(prec = 128, traps=[Overflow, DivisionByZero, InvalidOperation])` using the decimal library. Change the `prec` variable as required.
 
-2. Below this are the target values for the parameters (prepended 'target_') of the discrete Gaussian sampler, that is, the expected values for:
+2. Below this are the target values for the parameters (prepended `target_`) of the discrete Gaussian sampler, that is, the expected values for:
 
 1. Mean
 2. Standard deviation
 3. Precision
 4. Tail cut
-5. Skewness[^fn-sample_footnote]
-6. Kurtosis[^fn-sample_footnote]
-7. Hyperskewness[^fn-sample_footnote]
-8. Hyperkurtosis[^fn-sample_footnote]
+5. Skewness[1]
+6. Kurtosis[1]
+7. Hyperskewness[1]
+8. Hyperkurtosis[1]
 
-[^fn-sample_footnote]: These values should not require any change.
+[1]: These values should not require any change.
 
-To run in Anaconda, simply run: `python testgauss.py`
+To run in Anaconda, simply return: `python testgauss.py`
 
 ***
 
-For background information on discrete Gaussian samplers, the publications by [Howe *et al.*][1] and [Dwarakanath and Galbraith][2] are recommended.
+For background information on discrete Gaussian samplers, the publications by Howe *et al.*[2] and Dwarakanath and Galbraith[3] are recommended.
 
-[1]: Howe, J., Khalid, A., Rafferty, C., Regazzoni, F. and O'Neill, M., 2016. On Practical Discrete Gaussian Samplers For Lattice-Based Cryptography. IEEE Transactions on Computers. Available at: http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7792671
+[2]: Howe, J., Khalid, A., Rafferty, C., Regazzoni, F. and O'Neill, M., 2016. On Practical Discrete Gaussian Samplers For Lattice-Based Cryptography. IEEE Transactions on Computers. Available at: http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7792671
 
-[2] Dwarakanath, N.C. and Galbraith, S.D., 2014. Sampling from discrete Gaussians for lattice-based cryptography on a constrained device. Applicable Algebra in Engineering, Communication and Computing, 25(3), pp.159-180. Available at: http://link.springer.com/article/10.1007/s00200-014-0218-3
+[3] Dwarakanath, N.C. and Galbraith, S.D., 2014. Sampling from discrete Gaussians for lattice-based cryptography on a constrained device. Applicable Algebra in Engineering, Communication and Computing, 25(3), pp.159-180. Available at: http://link.springer.com/article/10.1007/s00200-014-0218-3
 
-**Absolutely no warranty whatsoever**
+***Provided with absolutely no warranty whatsoever**
