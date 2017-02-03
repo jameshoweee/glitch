@@ -16,14 +16,14 @@ The code is entirely adaptable, but for use in testing discrete Gaussian sampler
 
 2. Below this are the target values for the parameters (prepended `target_`) of the discrete Gaussian sampler, that is, the expected values for:
 
-..* Mean  
-..* Standard deviation  
-..* Precision  
-..* Tail cut  
-..* Skewness[1]  
-..* Kurtosis[1]  
-..* Hyperskewness[1]  
-..* Hyperkurtosis[1]  
+..1. Mean  
+..2. Standard deviation  
+..3. Precision  
+..4. Tail cut  
+..5. Skewness[1]  
+..6. Kurtosis[1]  
+..7. Hyperskewness[1]  
+..8. Hyperkurtosis[1]  
 
 [1]: These values should not require any change.
 
