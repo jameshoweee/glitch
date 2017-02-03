@@ -37,4 +37,4 @@ For background information on discrete Gaussian samplers, the publications by Ho
 
 [3] Dwarakanath, N.C. and Galbraith, S.D., 2014. Sampling from discrete Gaussians for lattice-based cryptography on a constrained device. Applicable Algebra in Engineering, Communication and Computing, 25(3), pp.159-180. Available at: http://link.springer.com/article/10.1007/s00200-014-0218-3
 
-***Provided with absolutely no warranty whatsoever**
+**Provided with absolutely no warranty whatsoever**
