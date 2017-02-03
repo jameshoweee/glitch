@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 '''
 Created on 26.05.2014
 Last updated 03.02.2016
@@ -30,7 +30,7 @@ target_skew = Decimal(0)
 target_kurt = Decimal(3)
 target_hyper_skew = Decimal(0)
 target_hyper_kurt = Decimal(15)
-data = r'C:\Users\40108992\Documents\Gauss_Sampler_Tests\gauss_sampler\coding\samples\2__36\gauss_samples_general_ber_speed_236'
+data = r'./samples/sample_size_68719476736/gauss_samples_general_ber_speed_236'
 #data = 'C:/Users/40108992/Documents/Gauss_Sampler_Tests/gauss_sampler/coding/samples/buggy/gauss_samples_general_ber_speed_buggy_210'
 #zig_data = 'C:/Users/40108992/Dropbox/gauss_samplers/zig_test_vectors'
 x_vals11 = []
