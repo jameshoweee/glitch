@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 '''
 Created on 26.05.2014
-Last updated 03.02.2016
+Last updated 08.03.2017
 @author: James
 '''
 
@@ -23,15 +23,15 @@ getcontext()
 Context(prec = 128, traps=[Overflow, DivisionByZero, InvalidOperation])
 
 target_mean = Decimal(0)
-target_sigma = Decimal(215.7277372731568368512617199)
+target_sigma = (254*math.sqrt(1/(2*math.log(2))))
 target_precision = Decimal(128)
 target_tail_cut = Decimal(math.sqrt(target_precision*Decimal(2)*Decimal(math.log(2))))
 target_skew = Decimal(0)
 target_kurt = Decimal(3)
 target_hyper_skew = Decimal(0)
 target_hyper_kurt = Decimal(15)
-data = r'./samples/sample_size_68719476736/gauss_samples_general_ber_speed_236'
-#data = 'C:/Users/40108992/Documents/Gauss_Sampler_Tests/gauss_sampler/coding/samples/buggy/gauss_samples_general_ber_speed_buggy_210'
+#data = r'C:\Users\40108992\Documents\Gauss_Sampler_Tests\gauss_sampler\coding\samples\2__36\gauss_samples_general_ber_speed_236'
+data = 'C:/Users/40108992/Documents/Gauss_Sampler_Tests/gauss_sampler/coding/samples/buggy/gauss_samples_general_ber_speed_buggy_210'
 #zig_data = 'C:/Users/40108992/Dropbox/gauss_samplers/zig_test_vectors'
 x_vals11 = []
 gauss_cnt11 = []
@@ -209,7 +209,7 @@ if __name__ == '__main__':
     k2 = k_squared(x_vals_full, gauss_cnt_full)[2]
     expected_freq_float = [float(i) for i in expected_freq(gauss_cnt_full_float,x_vals_full_int)]
     
-    print("//Target Sigma: ",target_sigma,"--","Sampler: ", "data path" ,"--","Sampler Size: ",sum(gauss_cnt_full))
+    print("//Target Sigma: ",target_sigma,"--","Sampler: ", "data path" ,"--","Sample Size: ",sum(gauss_cnt_full))
     print()
     print("(1) Sample Mean:                ", mean)
     print("    Standard Error Of The Mean: ", np.absolute(Decimal(std_dev)/Decimal(np.sqrt(sum(gauss_cnt_full)))))
@@ -219,7 +219,7 @@ if __name__ == '__main__':
     print("(2) Sample Standard Deviation:                ", std_dev)
     print("    Standard Error Of The Standard Deviation: ", np.absolute( (std_dev)/(np.sqrt(2*(sum(gauss_cnt_full)-1))) ) )
     print("    C.I. Of The Sample Standard Deviation =   ",std_dev,"+/-", ( Decimal(3.29)*Decimal(np.absolute( Decimal(std_dev)/Decimal(np.sqrt(2*(sum(gauss_cnt_full)-1)))) )  ), "with 99.9% confidence")
-    print("    ","**Accept**" if in_range(target_sigma,std_dev-( Decimal(3.29)*Decimal(np.absolute( Decimal(std_dev)/Decimal(np.sqrt(2*(sum(gauss_cnt_full)-1)))) )  ), std_dev+(( Decimal(3.29)*Decimal(np.absolute( Decimal(std_dev)/Decimal(np.sqrt(2*(sum(gauss_cnt_full)-1)))) )  )) ) == 1 else "**Reject**", "Null Hypothesis For Sample Mean With 99.9% Confidence")
+    print("    ","**Accept**" if in_range(target_sigma,std_dev-( Decimal(3.29)*Decimal(np.absolute( Decimal(std_dev)/Decimal(np.sqrt(2*(sum(gauss_cnt_full)-1)))) )  ), std_dev+(( Decimal(3.29)*Decimal(np.absolute( Decimal(std_dev)/Decimal(np.sqrt(2*(sum(gauss_cnt_full)-1)))) )  )) ) == 1 else "**Reject**", "Null Hypothesis For Sample Standard Deviation With 99.9% Confidence")
     print()
     print("(3) Sample Tail-Cut Parameter (Tau): ", tail_cut)
     print("    Distance From Target Tail-Cut:   ", np.absolute((Decimal(target_tail_cut)-Decimal(tail_cut))))
@@ -235,10 +235,14 @@ if __name__ == '__main__':
     print("(7) Sample Excess Hyperkurtosis: ", hyper_kurt -15)
     print()
     print("(8) Jarque-Bera Test For Normality (test statistic, p-value):       ", jarque_bera, sp.stats.chisqprob(float(jarque_bera),2))
+    print("    ","**Accept**" if sp.stats.chisqprob(float(jarque_bera),2) > 0.001 else "**Reject**", "Null Hypothesis of Normality From P-Value With 99.9% Confidence")
+    print("    ","**Accept**" if jarque_bera < 13.816 else "**Reject**", "Null Hypothesis of Normality From Test Statistic With 99.9% Confidence")
     print()
-    print("(9) D Agostino-Pearson K**2 Omnibus Test (test statistic, p-value): ", k2, sp.stats.chisqprob(float(k2),2))
+    print("(9) D'Agostino-Pearson K² Omnibus Test (test statistic, p-value): ", k2, sp.stats.chisqprob(float(k2),2))
+    print("    ","**Accept**" if sp.stats.chisqprob(float(k2),2) > 0.001 else "**Reject**", "Null Hypothesis of Normality From P-Value With 99.9% Confidence")
+    print("    ","**Accept**" if k2 < 13.816 else "**Reject**", "Null Hypothesis of Normality From Test Statistic With 99.9% Confidence")
     print()
-    print("(10) Histogram and Quantile-Quantile (Q-Q) plots")
+    print("(10) Histogram and Quantile-Quantile (Q-Q) plots:")
     print()
     print("NOTE: Expected values for 5th and 6th moments found in http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.409.5634&rep=rep1&type=pdf")
     print()
