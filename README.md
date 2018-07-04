@@ -1,8 +1,6 @@
 # GLITCH: A Discrete Gaussian Testing Suite For Lattice-Based Cryptography
 
-03-Feb-2017 James Howe, email: jhowe02 at qub.ac.uk
-
-Centre for Secure Information Technologies (CSIT), Queen's University Belfast, UK
+03-Feb-2017 James Howe, email: james.howe at bristol.ac.uk
 
 ## Introduction
 
