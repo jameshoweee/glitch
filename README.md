@@ -1,9 +1,7 @@
 # GLITCH: A Discrete Gaussian Testing Suite For Lattice-Based Cryptography
-
-03-Feb-2017 James Howe 
-email: james.howe at bristol.ac.uk
-
 Paper: https://eprint.iacr.org/2017/438
+
+An improved and updated version of this code is available at: [https://eprint.iacr.org/2019/1411](https://eprint.iacr.org/2019/1411).
 
 ## Introduction
 
